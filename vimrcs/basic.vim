@@ -407,5 +407,7 @@ func! CompileRunGcc()
         :!time bash %
     elseif &filetype == 'javascript'
         exec '!time node %'
+    elseif &filetype == 'scala'
+        exec '!time scala %'
     endif
 endfunc

@@ -3,8 +3,9 @@
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
+Plug 'preservim/tagbar'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -32,6 +33,7 @@ Plug 'morhetz/gruvbox'
 
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'honza/vim-snippets'
 " Plug 'SirVer/ultisnips'
@@ -44,7 +46,13 @@ call plug#end()
 " => tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left = 1
-nmap <F1> :TagbarToggle<CR>
+map <F1> :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => coc-metals
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType scala map <F1> :<C-u>CocCommand metals.tvp metalsPackages<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,3 +248,9 @@ let g:coc_snippet_prev = '<S-Tab>'
 " endfunction
 
 " let g:coc_snippet_next = '<tab>'
+"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-scala
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:scala_scaladoc_indent = 1
