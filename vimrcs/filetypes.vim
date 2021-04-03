@@ -43,6 +43,7 @@ endfunction
 " => Scala section
 """""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.sbt,*.sc set filetype=scala
+au FileType scala setl foldmethod=syntax
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
