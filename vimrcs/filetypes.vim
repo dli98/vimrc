@@ -30,7 +30,7 @@ au FileType javascript inoremap <buffer> $f // --- PH<esc>FP2xi
 
 function! JavaScriptFold() 
     setl foldmethod=syntax
-    setl foldlevelstart=1
+    setl foldlevelstart=99
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
     function! FoldText()
@@ -42,8 +42,14 @@ endfunction
 """"""""""""""""""""""""""""""
 " => Scala section
 """""""""""""""""""""""""""""""
+
 au BufNewFile,BufRead *.sbt,*.sc set filetype=scala
-au FileType scala setl foldmethod=syntax
+
+function! ScalaScriptFold()
+    setl foldmethod=syntax
+    setl foldlevelstart=99
+endfunction
+au FileType scala call ScalaScriptFold()
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section

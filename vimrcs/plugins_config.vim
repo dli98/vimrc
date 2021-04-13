@@ -243,14 +243,28 @@ let g:coc_snippet_prev = '<S-Tab>'
 "       \ coc#refresh()
 
 " function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~# '\s'
 " endfunction
-
-" let g:coc_snippet_next = '<tab>'
 "
-
+" let g:coc_snippet_next = '<tab>'
+" 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-scala
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 let g:scala_scaladoc_indent = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => filco minila r
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! FilcoMinilaR() 
+    nnoremap ` <esc> 
+    vnoremap ` <esc>gV 
+    onoremap ` <esc> 
+    cnoremap ` <esc> 
+    inoremap ` <esc> 
+    " inoremap <M-`> ` 
+endfunction
+
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '"""':'"""', "'''":"'''"}
+au VimEnter * call FilcoMinilaR()
+
